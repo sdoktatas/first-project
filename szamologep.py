@@ -16,6 +16,6 @@ assert  header_text == "Számológép"
 
 driver.find_element(By.ID, "submit-button").click()
 
-eredmeny = driver.find_element(By.ID, "result-input").text
-
-assert  eredmeny == 33
+eredmeny = driver.find_element(By.ID, "result-input").get_attribute("value")
+print("eredmény: " + eredmeny)
+assert  eredmeny == "33"
