@@ -4,22 +4,25 @@
     <meta charset="UTF-8">
     <title>Calculator</title>
     <link rel="stylesheet" href="calc.css"/>
+
 </head>
 <body>
     <h1>Számológép</h1>
     <p>Szépséges Számológép vagyok. Csak nem működik</p>
 <form>
-    <input  name="a" id="a" />
-    +
-    <input  name="b" id ="b"/>
-    <input type="submit" id = "submitButton" value="Számolunk"/>
-
     <div>
-    <input name = "eredmeny" id = "eredmeny"readonly/>
+
+        <input  name="a" id="a-input" />
+        +
+        <input  name="b" id ="b-input"/>
+        <input type="submit" id = "submit-button" value="Számolunk"/>
+    </div>
+    <div>
+    Eredmény:<input name = "result" id = "result-input" readonly="true"/>
     </div>
 </form>
 
 
-
+<script src="calc.js"></script>
 </body>
 </html>
