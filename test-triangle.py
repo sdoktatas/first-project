@@ -15,5 +15,6 @@ input_b.send_keys("3")
 input_c.send_keys("3")
 button.click()
 result = driver.find_element_by_id("result-ul")
+
 print("Eredmény " + result.text)
 
