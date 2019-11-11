@@ -14,7 +14,25 @@ input_a.send_keys("3")
 input_b.send_keys("3")
 input_c.send_keys("3")
 button.click()
-result = driver.find_element_by_id("result-ul")
+result = driver.find_element_by_xpath("//li[last()]").text
+#print(result)
+expected1 = 'a = 3, b = 3, c = 3: Egyenlő oldalú'
+assert result == expected1
 
-print("Eredmény " + result.text)
+
+input_a.clear()
+input_b.clear()
+input_c.clear()
+
+input_a.send_keys("-1")
+input_b.send_keys("3")
+input_c.send_keys("3")
+button.click()
+result = driver.find_element_by_xpath("//li[last()]").text
+
+expected2 = 'a = -1, b = 3, c = 3: Negatív'
+
+assert  result == expected2
+
+
 
