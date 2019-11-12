@@ -5,3 +5,8 @@ input {
   border-style: solid;
   border-width: 1px;
 }
+
+input[class=inputfield]:focus {
+   border-style: solid;
+   border-width: 3px;
+}
