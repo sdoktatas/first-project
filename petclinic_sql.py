@@ -121,6 +121,23 @@ def get_owner_of(pet_name):
     # cursor.execute("SELECT first_name,last_name from owners WHERE id = (SELECT owner_id FROM pets WHERE NAME = %s)", (pet_name,))
 
 
+def add_owner_to(owner_name, pet_name, birth_date, type_name):
+    parts = owner_name.split(" ")
+    first_name = parts[0]
+    last_name = parts[1]
+    cursor = conn.cursor()
+    cursor.execute("select id from owners where first_name = %s and last_name= %s", (first_name, last_name))
+    for (ow_id,) in cursor:
+        owner_id = ow_id
+    cursor.execute("SELECT id from types WHERE NAME = %s", (type_name,))
+    for (t_id,) in cursor:
+        # print(t_id)
+        type_id = t_id
+    cursor.close()
+    cursor = conn.cursor()
+    cursor.execute("INSERT INTO pets (name,birth_date,type_id,owner_id) VALUES (%s,%s,%s,%s)",(pet_name, birth_date, type_id, owner_id))
+    conn.commit()
+    cursor.close()
 
 
 # print_owner_names()
@@ -138,3 +155,4 @@ def get_owner_of(pet_name):
 # delete_owner_by_id(12)
 # print(pet_names_younger_than('2000-01-01'))
 # print(get_owner_of("Leo"))
+add_owner_to("Lajcsi Lagzi","Karcsika","2015-06-20","cat")
